@@ -409,7 +409,7 @@ def animales_view() -> rx.Component:
                     rx.text("No hay alertas activas", font_size="0.8em", color=_text_muted, padding="8px")
                 )
             ),
-            columns={"base": "1", "sm": "3"},
+            columns={"initial": "1", "sm": "3"},
             spacing="4",
             width="100%",
             margin_bottom="10px"
@@ -433,18 +433,20 @@ def animales_view() -> rx.Component:
                         max_length=20,
                     ),
 
-                    rx.hstack(
+                    rx.flex(
                         rx.vstack(
                             rx.text("Especie", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.select(["🐄 Bovino", "🐖 Porcino", "🐑 Ovino"], value=AnimalesState.especie_nombre, on_change=AnimalesState.cambiar_especie, width="100%"),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
                         rx.vstack(
                             rx.text("Sexo", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.select(["F", "M"], value=AnimalesState.sexo, on_change=AnimalesState.cambiar_sexo, width="100%"),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
-                        width="100%"
+                        width="100%",
+                        direction={"initial": "column", "sm": "row"},
+                        spacing="3"
                     ),
 
                     rx.text("Fecha de Nacimiento", weight="bold", font_size="0.85em", color=_text_sub),
@@ -456,18 +458,20 @@ def animales_view() -> rx.Component:
                         background_color=_input_bg,
                     ),
 
-                    rx.hstack(
+                    rx.flex(
                         rx.vstack(
                             rx.text("Peso Entrada (Kg)", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.input(placeholder="Ej. 350.50", value=AnimalesState.peso_inicial, on_change=AnimalesState.cambiar_peso, width="100%", background_color=_input_bg),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
                         rx.vstack(
                             rx.text("Alimento Inicial (Kg/día)", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.input(placeholder="Ej. 6.20", value=AnimalesState.alimento_inicial, on_change=AnimalesState.cambiar_alimento, width="100%", background_color=_input_bg),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
-                        width="100%"
+                        width="100%",
+                        direction={"initial": "column", "sm": "row"},
+                        spacing="3"
                     ),
 
                     rx.button(
@@ -483,7 +487,7 @@ def animales_view() -> rx.Component:
                 ),
                 background_color=_card_bg,
                 border=rx.color_mode_cond(light="1px solid #e2e8f0", dark="1px solid #374151"),
-                width={"base": "100%", "lg": "380px"},
+                width={"initial": "100%", "lg": "380px"},
                 padding="20px",
             ),
 
@@ -587,7 +591,7 @@ def animales_view() -> rx.Component:
             width="100%",
             align_items="start",
             spacing="4",
-            direction={"base": "column", "lg": "row"},
+            direction={"initial": "column", "lg": "row"},
         ),
 
         # --- Modal de Confirmación de Baja ---

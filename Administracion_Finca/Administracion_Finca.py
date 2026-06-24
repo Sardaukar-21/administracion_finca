@@ -158,6 +158,7 @@ def index() -> rx.Component:
                                 align="center",
                             ),
                             value="tab_animales",
+                            flex_shrink="0",
                         ),
                         rx.tabs.trigger(
                             rx.hstack(
@@ -177,6 +178,7 @@ def index() -> rx.Component:
                                 align="center",
                             ),
                             value="tab_vacunas",
+                            flex_shrink="0",
                         ),
                         rx.tabs.trigger(
                             rx.hstack(
@@ -186,6 +188,7 @@ def index() -> rx.Component:
                                 align="center",
                             ),
                             value="tab_alimentacion",
+                            flex_shrink="0",
                         ),
                         rx.tabs.trigger(
                             rx.hstack(
@@ -195,8 +198,10 @@ def index() -> rx.Component:
                                 align="center",
                             ),
                             value="tab_ia",
+                            flex_shrink="0",
                         ),
                         width="100%",
+                        overflow_x="auto",
                     ),
                     rx.tabs.content(
                         rx.box(animales_view(), padding_y="15px"),
@@ -225,7 +230,8 @@ def index() -> rx.Component:
             ),
         ),
         rx.toast.provider(),
-        width="100vw",
+        width="100%",
+        overflow_x="hidden",
         min_height="100vh",
         background_color=rx.color_mode_cond(light="#f1f5f9", dark="#111827"),
         font_family="'Inter', system-ui, -apple-system, sans-serif",

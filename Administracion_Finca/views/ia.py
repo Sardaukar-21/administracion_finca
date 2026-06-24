@@ -221,7 +221,7 @@ def ia_view() -> rx.Component:
                     ~IAState.reporte_generado,
                     # Estado Inicial
                     rx.center(
-                        rx.hstack(
+                        rx.flex(
                             rx.button(
                                 rx.hstack(
                                     rx.icon("sparkles", size=18),
@@ -232,7 +232,8 @@ def ia_view() -> rx.Component:
                                 loading=IAState.cargando_gerencial,
                                 color_scheme="purple",
                                 size="3",
-                                cursor="pointer"
+                                cursor="pointer",
+                                width={"initial": "100%", "sm": "auto"},
                             ),
                             rx.button(
                                 rx.hstack(
@@ -243,10 +244,13 @@ def ia_view() -> rx.Component:
                                 on_click=IAState.descargar_reporte_pdf,
                                 color_scheme="red",
                                 size="3",
-                                cursor="pointer"
+                                cursor="pointer",
+                                width={"initial": "100%", "sm": "auto"},
                             ),
                             spacing="4",
                             margin_y="20px",
+                            direction={"initial": "column", "sm": "row"},
+                            width="100%",
                             justify="center",
                             align="center"
                         ),
@@ -287,13 +291,13 @@ def ia_view() -> rx.Component:
                                 border=_strategy_border,
                                 padding="16px"
                             ),
-                            columns={"base": "1", "md": "2"},
+                            columns={"initial": "1", "md": "2"},
                             spacing="4",
                             width="100%",
                             margin_top="15px",
                             align="start",
                         ),
-                        rx.hstack(
+                        rx.flex(
                             rx.button(
                                 rx.hstack(
                                     rx.icon("file-down", size=16),
@@ -304,9 +308,9 @@ def ia_view() -> rx.Component:
                                 on_click=IAState.descargar_reporte_pdf,
                                 color_scheme="red",
                                 size="1",
-                                cursor="pointer"
+                                cursor="pointer",
+                                width={"initial": "100%", "sm": "auto"},
                             ),
-                            rx.spacer(),
                             rx.button(
                                 "Volver a Analizar Finca",
                                 on_click=IAState.generar_reporte_gerencial,
@@ -314,10 +318,14 @@ def ia_view() -> rx.Component:
                                 variant="soft",
                                 color_scheme="purple",
                                 size="1",
-                                cursor="pointer"
+                                cursor="pointer",
+                                width={"initial": "100%", "sm": "auto"},
                             ),
+                            direction={"initial": "column", "sm": "row"},
+                            spacing="3",
                             width="100%",
-                            align_items="center"
+                            justify="between",
+                            align="center"
                         ),
                         spacing="2",
                         width="100%"

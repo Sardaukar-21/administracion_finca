@@ -342,7 +342,7 @@ def vacunacion_view() -> rx.Component:
                     rx.text("No hay alertas activas", font_size="0.8em", color=_text_muted, padding="8px")
                 )
             ),
-            columns={"base": "1", "sm": "3"},
+            columns={"initial": "1", "sm": "3"},
             spacing="4",
             width="100%",
             margin_bottom="10px"
@@ -358,7 +358,7 @@ def vacunacion_view() -> rx.Component:
                     rx.heading("Registrar Jornada de Vacunación", size="3", color=_text_main),
                     rx.text("Registra la aplicación de vacunas en lote para la trazabilidad oficial del INSAI", font_size="0.8em", color=_text_muted),
 
-                    rx.hstack(
+                    rx.flex(
                         rx.vstack(
                             rx.text("Especie Destino", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.select(
@@ -367,7 +367,7 @@ def vacunacion_view() -> rx.Component:
                                 on_change=VacunacionState.cambiar_especie,
                                 width="100%",
                             ),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
                         rx.vstack(
                             rx.text("Vacuna (Catálogo INSAI)", weight="bold", font_size="0.85em", color=_text_sub),
@@ -377,9 +377,11 @@ def vacunacion_view() -> rx.Component:
                                 on_change=VacunacionState.cambiar_vacuna,
                                 width="100%",
                             ),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
-                        width="100%"
+                        width="100%",
+                        direction={"initial": "column", "sm": "row"},
+                        spacing="3"
                     ),
                     # Alerta de Período de Retiro
                     rx.cond(
@@ -400,7 +402,7 @@ def vacunacion_view() -> rx.Component:
                         )
                     ),
 
-                    rx.hstack(
+                    rx.flex(
                         rx.vstack(
                             rx.text("Lote Comercial", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.input(
@@ -410,7 +412,7 @@ def vacunacion_view() -> rx.Component:
                                 width="100%",
                                 background_color=_input_bg,
                             ),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
                         rx.vstack(
                             rx.text("Fecha de Aplicación", weight="bold", font_size="0.85em", color=_text_sub),
@@ -421,23 +423,27 @@ def vacunacion_view() -> rx.Component:
                                 width="100%",
                                 background_color=_input_bg,
                             ),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
-                        width="100%"
+                        width="100%",
+                        direction={"initial": "column", "sm": "row"},
+                        spacing="3"
                     ),
 
-                    rx.hstack(
+                    rx.flex(
                         rx.vstack(
                             rx.text("Laboratorio", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.input(placeholder="Ej. Bayer", value=VacunacionState.laboratorio, on_change=VacunacionState.cambiar_laboratorio, width="100%", background_color=_input_bg),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
                         rx.vstack(
                             rx.text("Veterinario", weight="bold", font_size="0.85em", color=_text_sub),
                             rx.input(placeholder="Ej. Dr. Pérez", value=VacunacionState.veterinario, on_change=VacunacionState.cambiar_veterinario, width="100%", background_color=_input_bg),
-                            align_items="start", width="50%"
+                            align_items="start", width={"initial": "100%", "sm": "50%"}
                         ),
-                        width="100%"
+                        width="100%",
+                        direction={"initial": "column", "sm": "row"},
+                        spacing="3"
                     ),
 
                     rx.button(
@@ -454,7 +460,7 @@ def vacunacion_view() -> rx.Component:
                 ),
                 background_color=_card_bg,
                 border=_card_border,
-                width={"base": "100%", "lg": "380px"},
+                width={"initial": "100%", "lg": "380px"},
                 padding="20px",
             ),
 
@@ -521,7 +527,7 @@ def vacunacion_view() -> rx.Component:
             width="100%",
             align_items="start",
             spacing="4",
-            direction={"base": "column", "lg": "row"},
+            direction={"initial": "column", "lg": "row"},
         ),
 
         # --- Historial de Vacunación ---
